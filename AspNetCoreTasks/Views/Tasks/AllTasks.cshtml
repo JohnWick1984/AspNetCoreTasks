@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Все задания";
+}
+
+<h1>Задания на одной странице</h1>
+
+
+<h2>Случайная буква латинского алфавита:</h2>
+<p>@ViewBag.RandomLetter</p>
+
+
+<h2>Сонет</h2>
+@Html.Raw(ViewBag.ShakespeareSonnet)
+<p style="text-align: right;"> @ViewBag.Author</p>
+
+
+<h2>Проверка на палиндром</h2>
+<form method="get">
+    <label for="word">Введите слово для проверки:</label>
+    <input type="text" id="word" name="word" value="@ViewBag.Word" />
+    <button type="submit">Проверить</button>
+</form>
+@if (!string.IsNullOrEmpty(ViewBag.Word))
+{
+    <p>Строка: <strong>@ViewBag.Word</strong></p>
+    <p>Является палиндромом? <strong>@ViewBag.IsPalindrome</strong></p>
+}
